@@ -3,6 +3,7 @@
 
 GITHUB_USERNAME=atulkumbhar85
 GITHUB_PROJECT=phpinfo
+NODEPORT=80
 
 git clone https://github.com/${GITHUB_USERNAME}/${GITHUB_PROJECT}
 cd ${GITHUB_PROJECT}
