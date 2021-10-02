@@ -1,0 +1,56 @@
+networks:
+  phpinfo-network:
+    internal: true
+  volume-init-network:
+    internal: true
+
+services:
+  phpinfo-service:
+    command:
+      - -f
+      - index.php
+      - -S
+      - 0.0.0.0:8080
+    deploy:
+      mode: replicated
+      placement:
+        constraints:
+          - node.role==worker
+      replicas: 
+    entrypoint: /usr/bin/php
+    environment:
+      HELLO: world
+      AUTHOR: Atul
+    image: atulkumbhar85/phpinfo:single
+    networks:
+      - phpinfo-network
+    ports:
+      - 80:8080
+    user: nobody
+    volumes:
+      - phpinfo-volume:/shared/:ro
+    working-dir: /shared/phpinfo/src/
+  volume-init-service:
+    command:
+      - 'rm -rf phpinfo && git clone https://github.com.atulkumbhar85/phpinfo && cd phpinfo/ && git checkout 2021-08-06 && sleep 1000'
+    deploy:
+      mode: global      
+      placement:
+        - node.role==worker              
+    entrypoint:
+      - sh
+      - -c
+    environment:
+      HELLO: bye
+    image: alpine/git:latest
+    networks: 
+      - volume-init-network
+    user: root
+    volume:
+      - phpinfo-volume:/shared/:ro
+    working-dir: /shared/    
+
+version: '3.8'
+
+volumes:
+  phpinfo-volume:
