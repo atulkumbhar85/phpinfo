@@ -32,7 +32,7 @@ services:
     working-dir: /shared/phpinfo/src/
   volume-init-service:
     command:
-      - 'rm -rf phpinfo && git clone https://github.com.atulkumbhar85/phpinfo && cd phpinfo/ && git checkout 2021-08-06 && sleep 1000'
+      - 'rm -rf phpinfo && git clone https://github.com.atulkumbhar85/phpinfo && cd phpinfo/ && sleep 1000'
     deploy:
       mode: global      
       placement:
