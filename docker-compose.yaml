@@ -29,11 +29,11 @@ services:
     user: nobody
     volumes:
       - phpinfo-volume:/shared/:ro
-    working-dir: /shared/phpinfo/src/
+    working-dir: /shared/${GITHUB_PROJECT}/${GITHUB_SRC}/
   volume-init-service:
     command:
       - -c
-      - rm -rf phpinfo && git clone https://github.com.atulkumbhar85/phpinfo && cd phpinfo/ && sleep 1000 
+      - rm -rf phpinfo && git clone https://github.com/${GITHUB_USERNAME}/${GITHUB_PROJECT} && cd phpinfo/ && sleep 1000 
     deploy:
       mode: global      
       placement:
@@ -46,7 +46,7 @@ services:
       - volume-init-network
     user: root
     volume:
-      - phpinfo-volume:/shared/:ro
+      - phpinfo-volume:/shared/:rw
     working-dir: /shared/    
 
 version: '3.8'
