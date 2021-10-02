@@ -30,3 +30,4 @@ cd ${GITHUB_PROJECT}
 git pull
 
 source ${ENV_FILE}
+docker stack deploy --compose-file docker-compose.yaml ${GITHUB_PROJECT}_${GITHUB_RELEASE}
