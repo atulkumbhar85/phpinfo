@@ -53,6 +53,3 @@ services:
     working_dir: /shared/    
 
 version: '3.8'
-
-volumes:
-  phpinfo-volume:
