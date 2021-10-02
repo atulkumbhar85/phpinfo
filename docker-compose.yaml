@@ -48,7 +48,7 @@ services:
     networks: 
       - volume-init-network
     user: root
-    volume:
+    volumes:
       - phpinfo-volume:/shared/:rw
     working_dir: /shared/    
 
