@@ -14,3 +14,19 @@ docker container run --cpus 0.05 --detach --memory 10M --name ${GITHUB_PROJECT}_
 '''
 '''
 # Docker Compose
+
+export ADVERTISE_ADDR=192.168.0.8
+export ENV_FILE=common.env
+export GITHUB_PROJECT=phpinfo
+export GITHUB_RELEASE=single-line
+export GITHUB_SRC=src
+export GITHUB_USERNAME=atulkumbhar85
+export NODEPORT=80
+export WORKDIR=src
+
+cd ${HOME}
+git clone https://github.com/${GITHUB_USERNAME}/${GITHUB_PROJECT}
+cd ${GITHUB_PROJECT}
+git pull
+
+source ${ENV_FILE}
