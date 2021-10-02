@@ -20,7 +20,7 @@ export ENV_FILE=common.env
 export GITHUB_PROJECT=phpinfo
 export GITHUB_RELEASE=single-line
 export GITHUB_SRC=src
-export GITHUB_USERNAME=atulkumbhar85
+export GITHUB_USERNAME=academiaonline
 export NODEPORT=80
 export WORKDIR=src
 
