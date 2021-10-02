@@ -39,6 +39,8 @@ services:
       placement:
         - node.role == worker              
     entrypoint: /bin/sh
+    env_file:
+      - ./${ENV_FILE}
     environment:
       HELLO: bye
     image: alpine/git:latest
