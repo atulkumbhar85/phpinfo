@@ -37,7 +37,8 @@ services:
     deploy:
       mode: global      
       placement:
-        - node.role == worker              
+        constraints:
+          - node.role == worker              
     entrypoint: /bin/sh
     env_file:
       - ./${ENV_FILE}
