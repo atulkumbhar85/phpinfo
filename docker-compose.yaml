@@ -29,7 +29,7 @@ services:
     user: nobody
     volumes:
       - phpinfo-volume:/shared/:ro
-    working-dir: /shared/${GITHUB_PROJECT}/${GITHUB_SRC}/
+    working_dir: /shared/${GITHUB_PROJECT}/${GITHUB_SRC}/
   volume-init-service:
     command:
       - -c
@@ -50,7 +50,7 @@ services:
     user: root
     volume:
       - phpinfo-volume:/shared/:rw
-    working-dir: /shared/    
+    working_dir: /shared/    
 
 version: '3.8'
 
