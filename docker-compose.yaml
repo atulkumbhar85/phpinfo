@@ -21,7 +21,7 @@ services:
     environment:
       HELLO: world
       AUTHOR: Atul
-    image: atulkumbhar85/phpinfo:single
+    image: ${GITHUB_USERNAME}/${GITHUB_PROJECT}:${GITHUB_RELEASE}
     networks:
       - phpinfo-network
     ports:
