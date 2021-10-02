@@ -47,6 +47,7 @@ services:
     image: alpine/git:latest
     networks: 
       - volume-init-network
+    read_only: true
     user: root
     volumes:
       - phpinfo-volume:/shared/:rw
