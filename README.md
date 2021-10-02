@@ -11,3 +11,6 @@ git pull
 
 docker image build --file Dockerfile-metadata --tag ${GITHUB_USERNAME}/${GITHUB_PROJECT}:metadata ./
 docker container run --cpus 0.05 --detach --memory 10M --name ${GITHUB_PROJECT}_meta --publish ${NODEPORT}:8080 --read-only --rm --volume ${PWD}/src:/src:ro ${GITHUB_USERNAME}/${GITHUB_PROJECT}:metadata
+'''
+'''
+# Docker Compose
